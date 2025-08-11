@@ -1,6 +1,6 @@
 DLR-Bereich Raumfahrt
 ==============================================================
-**Zuordnung:**
+Zuordnung:
 ---
 Eingänge:
 ---
