@@ -1,8 +1,8 @@
 ######################################################
 ### Main-Program                                   ###
-### Projekt: Pilot ZiRa                            ###
+### Projekt: Bereich-Raumfahrt                     ###
 ### Version: 0.99                                  ###
-### Datum  : 04.08.2025                            ###
+### Datum  : 11.08.2025                            ###
 ######################################################
 from machine import Pin, Timer                              # type: ignore
 from libs.module_init import Global_Module as MyModule
