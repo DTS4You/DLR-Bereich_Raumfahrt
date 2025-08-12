@@ -1,11 +1,11 @@
 # #############################################################################
 # ### MyGlobal
-# ### Merlin V1.01
+# ### Bereich Raumfahrt V1.00
 # #############################################################################
 
 class Global_Module:
     
-    inc_ws2812          = True
+    inc_ws2812          = False
     inc_decoder         = False
     inc_serial          = False
     inc_i2c             = False
@@ -27,18 +27,6 @@ class Global_WS2812:
     numpix_6            = 320           # Anz. LEDs im 6. Stripe -> Spiegel, Laser, Empfänger
     #numpix_1           = 256           # Anz. LEDs im 1. Stripe -> Test !!!
 
-    #seg_01_strip        = 0             #  1. Seg -> Stripe      # 0 -> Spiegel -> Ring
-    #seg_01_start        = 0             #  1. Seg -> Start
-    #seg_01_count        = 68            #  1. Seg -> Anzahl
-
-    #seg_02_strip        = 0             #  2. Seg -> Stripe      # 1 -> Laser Sender
-    #seg_02_start        = 68            #  2. Seg -> Start
-    #seg_02_count        = 23            #  2. Seg -> Anzahl
-
-    #seg_03_strip        = 0             #  3. Seg -> Stripe      # 2 -> Laser Empfänger
-    #seg_03_start        = 91            #  3. Seg -> Start
-    #seg_03_count        = 16            #  3. Seg -> Anzahl
-    
     #--------------------------------------------------------------------------
 
     seg_01_strip        = 0             #  1. Seg -> Stripe      # 0 -> Boden 1
@@ -87,7 +75,8 @@ class Global_WS2812:
 class Global_Default:
 
     blink_freq          = 3.0           # Blink Frequenz
-    
+
+#==============================================================================
 
 def main():
 
@@ -104,3 +93,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+#------------------------------------------------------------------------------
