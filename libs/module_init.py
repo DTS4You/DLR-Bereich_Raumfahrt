@@ -30,39 +30,20 @@ class Global_WS2812:
     #--------------------------------------------------------------------------
     # Strip -> LED Stripe -> Value - 1
 
-    seg_1_01_strip      = 1             #  1. Line -> 1. Seg -> Teil 1.1
-    seg_1_01_start      = 0
-    seg_1_01_count      = 8
+    seg_1_01    = ( 1 ,            #  1. Line -> 1. Seg -> Teil 1.1
+                    0 , 
+                    8 )
 
-    seg_1_02_strip      = 1             #  1. Line -> 2. Seg -> Teil 1.2
-    seg_1_02_start      = seg_1_01_count - 1 
-    seg_1_02_count      = 8
+    seg_1_02    = ( 1 ,            #  1. Line -> 2. Seg -> Teil 1.2
+                    seg_1_01[1] - 1 , 
+                    8 )
 
-    seg_1_03_strip      = 1             #  1. Line -> 3. Seg -> Teil 1.3
-    seg_1_03_start      = seg_1_02_count - 1
-    seg_1_03_count      = 8
+    seg_1_03    = ( 1 ,            #  1. Line -> 3. Seg -> Teil 1.3
+                    seg_1_02[1] - 1 ,
+                    8 )
 
     #--------------------------------------------------------------------------
 
-    seg_2_01_strip      = 3             #  4. Seg -> Stripe      # 3 -> Boden 4
-    seg_2_01_start      = 0             #  4. Seg -> Start
-    seg_2_01_count      = 16            #  4. Seg -> Anzahl
-
-    seg_2_02_strip      = 4             #  5. Seg -> Stripe      # 4 -> Boden 5
-    seg_2_02_start      = 0             #  5. Seg -> Start
-    seg_2_02_count      = 16            #  5. Seg -> Anzahl
-    
-    seg_06_strip        = 5             #  6. Seg -> Stripe      # 5 -> Spiegel
-    seg_06_start        = 0             #  6. Seg -> Start
-    seg_06_count        = 241           #  6. Seg -> Anzahl
-    
-    seg_07_strip        = 5             #  7. Seg -> Stripe      # 6 -> Laser
-    seg_07_start        = 241           #  7. Seg -> Start
-    seg_07_count        = 23            #  7. Seg -> Anzahl
-
-    seg_08_strip        = 5             #  8. Seg -> Stripe      # 7 -> Empfänger
-    seg_08_start        = 264           #  8. Seg -> Start
-    seg_08_count        = 30            #  8. Seg -> Anzahl
     
 # -----------------------------------------------------------------------------
 
