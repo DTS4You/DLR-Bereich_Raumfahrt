@@ -28,19 +28,46 @@ class Global_WS2812:
     #numpix_1           = 256           # Anz. LEDs im 1. Stripe -> Test !!!
 
     #--------------------------------------------------------------------------
-    # Strip -> LED Stripe -> Value - 1
+    # Strip -> LED Stripe
 
-    seg_1_01    = ( 1 ,            #  1. Line -> 1. Seg -> Teil 1.1
+    seg_1_01    = ( 0 ,            #  1. Line -> 1. Seg -> Teil 1.1
                     0 , 
                     8 )
 
-    seg_1_02    = ( 1 ,            #  1. Line -> 2. Seg -> Teil 1.2
-                    seg_1_01[1] - 1 , 
+    seg_1_02    = ( 0 ,            #  1. Line -> 2. Seg -> Teil 1.2
+                    seg_1_01[2] , 
                     8 )
 
-    seg_1_03    = ( 1 ,            #  1. Line -> 3. Seg -> Teil 1.3
-                    seg_1_02[1] - 1 ,
+    seg_1_03    = ( 0 ,            #  1. Line -> 3. Seg -> Teil 1.3
+                    seg_1_02[1] + seg_1_02[2] ,
                     8 )
+    
+    seg_1_04    = ( 0 ,            #  1. Line -> 4. Seg -> Teil 1.4
+                    seg_1_03[1] + seg_1_03[2] ,
+                    8 )
+    
+    #--------------------------------------------------------------------------
+
+    # x -> Values
+    # y -> Segmente
+    # z -> Stipes
+    seg = [[[0 for x in range(3)] for y in range(4)] for z in range(2)]
+    
+    seg[0][0] = [   0 ,     # 1. Line , 1. Segment -> Teil 1.1
+                    0 ,     
+                    8 ]
+    
+    seg[0][1] = [   0 ,     # 1. Line , 2. Segment -> Teil 1.2
+                    seg[0][0][2] ,
+                    8 ]
+    
+    seg[0][2] = [   0 ,     # 1. Line , 3. Segment -> Teil 1.3
+                    seg[0][1][1] + seg[0][1][2] ,
+                    8 ]
+    
+    seg[0][3] = [   0 ,     # 1. Line , 4. Segment -> Teil 1.4
+                    seg[0][2][1] + seg[0][2][2] ,
+                    8 ]
 
     #--------------------------------------------------------------------------
 
@@ -68,7 +95,15 @@ def main():
     mg = Global_WS2812
     print(mg.numpix_1)
     print(mg.seg_1_01[0], mg.seg_1_01[1], mg.seg_1_01[2])
-    #print(mg.seg_02_strip, mg.seg_02_start, mg.seg_02_count)
+    print(mg.seg_1_02[0], mg.seg_1_02[1], mg.seg_1_02[2])
+    print(mg.seg_1_03[0], mg.seg_1_03[1], mg.seg_1_03[2])
+    print(mg.seg_1_04[0], mg.seg_1_04[1], mg.seg_1_04[2])
+
+    print(len(mg.seg))
+    print(len(mg.seg[0]))
+    print(len(mg.seg[0][0]))
+    for x in range(len(mg.seg)):
+        print(mg.seg[x])
 
 
 #------------------------------------------------------------------------------
