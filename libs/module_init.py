@@ -47,11 +47,12 @@ class Global_WS2812:
                     8 )
     
     #--------------------------------------------------------------------------
+    num_values  = 3
+    num_segments = 4
+    num_stripe  = 2
+    
+    seg = [[[0 for _ in range(3)] for _ in range(4)] for _ in range(2)]
 
-    # x -> Values
-    # y -> Segmente
-    # z -> Stipes
-    seg = [[[0 for x in range(3)] for y in range(4)] for z in range(2)]
     
     seg[0][0] = [   0 ,     # 1. Line , 1. Segment -> Teil 1.1
                     0 ,     
