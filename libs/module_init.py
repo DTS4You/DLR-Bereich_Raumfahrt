@@ -91,7 +91,7 @@ class Global_WS2812:
         # [Z][Y][1]   -> Start Position Start from 0
         # [Z][Y][2]   -> Number of LED in this Segment
 
-        self.array = [[[value for _ in range(dim[0])] for _ in range(dim[1])] for _ in range(dim[2])]
+        self.array = [[[self.default_value for _ in range(self.num_values)] for _ in range(self.num_segments)] for _ in range(self.num_stripes)]
 
    
 
