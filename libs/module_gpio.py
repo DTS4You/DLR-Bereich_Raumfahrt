@@ -10,10 +10,11 @@ from time import sleep # type: ignore
 class GPIO:
 
     def __init__(self):
-        self.i2c = I2C(0, scl=Pin(21), sda=Pin(20))
-        self.mcp = mcp23017.MCP23017(self.i2c, 0x20)
-        self.inputs = 0x00
-        self.outputs = 0x00
+        self.i2c        = I2C(0, scl=Pin(21), sda=Pin(20))
+        self.mcp        = mcp23017.MCP23017(self.i2c, 0x20)
+        self.inputs     = 0x00
+        self.outputs    = 0x00
+        self.blink      = True
 
     def get_input_byte(self):
         self.inputs = int.from_bytes(self.mcp._read(0x13, 1), 'big')
@@ -40,35 +41,39 @@ class GPIO:
         self.mcp._write([0x12, self.outputs])
         return self.outputs
 
-
+    def do_blink(self):
+        if self.blink:
+            self.mcp._write([0x12, self.outputs])
+            self.blink = False
+        else:
+            self.mcp._write([0x12, 0x00])
+            self.blink = True
+        return self.blink
 
 
 # -----------------------------------------------------------------------------
 def main():
 
     print("=== Start Main -> Module_Sound ===")
+    LOOP_DELAY = 0.3
 
     try:
         print("Start")
 
         gpio = GPIO()
+        gpio.set_output_byte(0xAA)
 
         while(True):
 
-            gpio.get_input_byte()
-            if gpio.get_value_bit(0):
-                gpio.set_output_bit(0, "On")
-            if gpio.get_value_bit(1):
-                gpio.set_output_bit(1, "On")
-            if gpio.get_value_bit(2):
-                gpio.set_output_bit(0, "Off")
-            if gpio.get_value_bit(3):
-                gpio.set_output_bit(1, "Off")
-            sleep(0.2)
+            gpio.do_blink()
+            sleep(LOOP_DELAY)
+
     except KeyboardInterrupt:
         print("Keyboard Interrupt")
     finally:
         print("Exiting the program")
+        gpio.set_output_byte(0x00)
+        
     print("=== End Main ===")
 
 # ------------------------------------------------------------------------------

@@ -31,6 +31,7 @@ obj_offset = 0          # Offset bei Zählung ab 1 = -1
 
 def blink_func():
     MyWS2812.do_blink()
+    MyGPIO.GPIO.do_blink()
  
 # ------------------------------------------------------------------------------
 # --- Main Function                                                          ---
@@ -48,6 +49,8 @@ def main():
         print("Start Main Loop")
  
         blink_couter = 0
+
+        MyGPIO.GPIO.set_output_byte(0x00)
     
         MyWS2812.do_all_def()	# Alle Leds auf Default-Wert
        
@@ -163,16 +166,11 @@ def main():
 
 if __name__ == "__main__":
 
-    if MyModule.inc_i2c:
-        print("I2C_MCP23017 -> Load-Module")
-        import libs.module_i2c as MyGPIO
-        #print("I2C -> Setup")
-        MyGPIO.i2c_setup()
-        ### Test ###
-        print("I2C -> SetOutput")
-        MyGPIO.i2c_write(0,True)
-        time.sleep(0.5)
-        MyGPIO.i2c_write(0,False)
+    if MyModule.inc_gpio:
+        print("I2C_GPIO -> Load-Module")
+        import libs.module_gpio as MyGPIO
+    else:
+        print("I2C_GPIO -> nicht vorhanden")
 
     if MyModule.inc_ws2812:
         print("WS2812 -> Load-Module")
