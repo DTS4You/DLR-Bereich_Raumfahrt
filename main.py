@@ -35,13 +35,9 @@ obj_offset = 0          # Offset bei Zählung ab 1 = -1
 def blink_func():
     MyWS2812.do_blink()
  
-
 # ------------------------------------------------------------------------------
 # --- Main Function                                                          ---
 # ------------------------------------------------------------------------------
-# 0 -> Spiegel -> Ring
-# 1 -> Laser Sender
-# 2 -> Laser Empfänger
 
 def main():
 
