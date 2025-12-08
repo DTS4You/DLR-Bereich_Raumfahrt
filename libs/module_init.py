@@ -5,116 +5,77 @@
 
 class Global_Module:
     
-    inc_ws2812          = False
-    inc_decoder         = False
-    inc_serial          = False
-    inc_i2c             = False
+    inc_ws2812          = True
+    inc_decoder         = True
+    inc_serial          = True
 
-#------------------------------------------------------------------------------
+
+class Global_WS2812:
+
+    numpix_1            = 64            # Anzahl LEDs im 1. Stripe
+    numpix_2            = 64            # Anzahl LEDs im 2. Stripe
+    numpix_3            = 64            # Anzahl LEDs im 3. Stripe
+    numpix_4            = 64            # Anzahl LEDs im 4. Stripe
+    numpix_5            = 64            # Anzahl LEDs im 5. Stripe
+    numpix_6            = 64            # Anzahl LEDs im 6. Stripe
+    numpix_7            = 64            # Anzahl LEDs im 7. Stripe
+    numpix_8            = 64            # Anzahl LEDs im 8. Stripe
+
+    seg_01_strip        = 0             #  1. Ledsegment -> Stripe      # 1. LED-Stripe
+    seg_01_start        = 0             #  1. Ledsegment -> Start
+    seg_01_count        = 63            #  1. Ledsegment -> Anzahl
+
+    seg_02_strip        = 1             #  2. Ledsegment -> Stripe      # 2. LED-Stripe
+    seg_02_start        = 0             #  2. Ledsegment -> Start
+    seg_02_count        = 63            #  2. Ledsegment -> Anzahl
+
+    seg_03_strip        = 2             #  3. Ledsegment -> Stripe      # 3. LED-Stripe
+    seg_03_start        = 0             #  3. Ledsegment -> Start
+    seg_03_count        = 63            #  3. Ledsegment -> Anzahl
+    
+    seg_04_strip        = 3             #  4. Ledsegment -> Stripe      # 4. LED-Stripe
+    seg_04_start        = 0             #  4. Ledsegment -> Start
+    seg_04_count        = 63            #  4. Ledsegment -> Anzahl
+
+    seg_05_strip        = 4             #  5. Ledsegment -> Stripe      # 5. LED-Stripe
+    seg_05_start        = 0             #  5. Ledsegment -> Start
+    seg_05_count        = 63            #  5. Ledsegment -> Anzahl
+    
+    seg_06_strip        = 5             #  6. Ledsegment -> Stripe      # 6. LED-Stripe
+    seg_06_start        = 0             #  6. Ledsegment -> Start
+    seg_06_count        = 63            #  6. Ledsegment -> Anzahl
+    
+    seg_07_strip        = 6             #  7. Ledsegment -> Stripe      # 7. LED-Stripe
+    seg_07_start        = 0             #  7. Ledsegment -> Start
+    seg_07_count        = 63            #  7. Ledsegment -> Anzahl
+
+    seg_08_strip        = 7             #  8. Ledsegment -> Stripe      # 8. LED-Stripe
+    seg_08_start        = 0             #  8. Ledsegment -> Start
+    seg_08_count        = 63            #  8. Ledsegment -> Anzahl
+    
+# -----------------------------------------------------------------------------
+
+    color_def           = (  5,  0,  0)
+    color_off           = (  0,  0,  0)
+    color_on            = (100,100,100)
+    color_dot           = ( 50, 50, 50)
+    color_blink_on      = (  0,200,  0)
+    color_blink_off     = (  0, 10,  0)
+
 
 class Global_Default:
 
     blink_freq          = 3.0           # Blink Frequenz
-
-#==============================================================================
-
-def three_d_array(value, *dim):
-    """
-    Create 3D-array
-    :param dim: a tuple of dimensions - (x, y, z)
-    :param value: value with which 3D-array is to be filled
-    :return: 3D-array
-    """
-    # [Z][Y][0]   -> Stripe PIN Value
-    # [Z][Y][1]   -> Start Position Start from 0
-    # [Z][Y][2]   -> Number of LED in this Segment
-
-    return [[[value for _ in range(dim[0])] for _ in range(dim[1])] for _ in range(dim[2])]
-
-#------------------------------------------------------------------------------
-def set_stripe_value(array):
-
-    array[0][0][0] = 1      # 1. Stripe PIN
-    array[0][0][2] = 3      # 1. Stripe ; 1. Segment  -> Teil 1.1
-    array[0][1][2] = 6      # 1. Stripe ; 2. Segment  -> Teil 1.2
-    array[0][2][2] = 9      # 1. Stripe ; 3. Segment  -> Teil 1.3
-    array[0][3][2] = 9      # 1. Stripe ; 4. Segment  -> Teil 1.4
-
-    array[1][0][0] = 2      # 2. Stripe PIN
-    array[1][0][2] = 8      # 2. Stripe ; 1. Segment  -> Teil 2.1 
-    array[1][1][2] = 8      # 2. Stripe ; 2. Segment  -> Teil 2.2 
-    array[1][2][2] = 8      # 2. Stripe ; 3. Segment  -> Teil 2.3 
-    array[1][3][2] = 8      # 2. Stripe ; 4. Segment  -> Teil 2.4 
-
-    array[2][0][0] = 3      # 2. Stripe PIN
-    array[2][0][2] = 4      # 3. Stripe ; 1. Segment  -> Teil 3.1 
-    array[2][1][2] = 4      # 3. Stripe ; 2. Segment  -> Teil 3.2 
-    array[2][2][2] = 0      # 3. Stripe ; 3. Segment  -> Teil 3.3 
-    array[2][3][2] = 0      # 3. Stripe ; 4. Segment  -> Teil 3.4 
-
-#------------------------------------------------------------------------------
-
-def make_stripe_array(array):
-    num_segment = len(array[0])
-    num_stripes = len(array)
-    #print(num_segment)
-    #print(num_stripes)
-    for z in range(num_stripes):
-        for y in range(num_segment):
-            if array[z][y][2] > 0 :     # Anzahl Pixel > 0
-                if y > 0:               # Ab dem 2. Segment wird der Startwert berechnet
-                    array[z][y][1] = array[z][y - 1][2] + array[z][y - 1][1]
-                    array[z][y][0] = array[z][0][0]     # Stripe PIN set to first item
-
-#------------------------------------------------------------------------------
-
-class Global_WS2812:
-
-    def __init__(self):
-
-        self.numpix_1           = 16            # Anz. LEDs im 1. Stripe -> Boden 1
-        self.numpix_2           = 16            # Anz. LEDs im 2. Stripe -> Boden 2
-        self.numpix_3           = 16            # Anz. LEDs im 3. Stripe -> Boden 3
-        self.numpix_4           = 16            # Anz. LEDs im 4. Stripe -> Boden 4
-        self.numpix_5           = 16            # Anz. LEDs im 5. Stripe -> Boden 5
-        self.numpix_6           = 320           # Anz. LEDs im 6. Stripe -> Spiegel, Laser, Empfänger
-        self.numpix_7           = 256           # Anz. LEDs im 1. Stripe -> Test !!!
-        self.default_value      = 0
-        self.num_values         = 3
-        self.num_segments       = 4
-        self.num_stripes        = 3
-        self.array              = []
-    #--------------------------------------------------------------------------
-    def three_d_array(self):
-
-        # [Z][Y][0]   -> Stripe PIN Value
-        # [Z][Y][1]   -> Start Position Start from 0
-        # [Z][Y][2]   -> Number of LED in this Segment
-
-        self.array = [[[self.default_value for _ in range(self.num_values)] for _ in range(self.num_segments)] for _ in range(self.num_stripes)]
-
-   
-
     
-# -----------------------------------------------------------------------------
-
-    color_def           = (  0,  0,  2)
-    color_off           = (  0,  0,  0)
-    color_on            = (255, 10, 10)
-    color_dot           = (110,  2,  2)
-    color_half          = (110,  2,  2)
-    color_blink_on      = (255, 20, 20)
-    color_blink_off     = (  0,  0,  5)
-
-#==============================================================================
 
 def main():
 
     print("Start Global Init")
     mg = Global_WS2812
     print(mg.numpix_1)
-    print(mg.array[0][0][0])
-
+    print(mg.numpix_2)
+    print(mg.seg_01_strip, mg.seg_01_start, mg.seg_01_count)
+    print(mg.seg_02_strip, mg.seg_02_start, mg.seg_02_count)
 
 
 #------------------------------------------------------------------------------
@@ -123,5 +84,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-#------------------------------------------------------------------------------
