@@ -31,7 +31,6 @@ obj_offset = 0          # Offset bei Zählung ab 1 = -1
 
 def blink_func():
     MyWS2812.do_blink()
-    MyGPIO.GPIO.do_blink()
  
 # ------------------------------------------------------------------------------
 # --- Main Function                                                          ---
@@ -41,16 +40,14 @@ def main():
 
     print("=== Start Main ===")
     
-
-    MyWS2812.do_all_def()
+    blink_couter = 0
 
     try:
         
         print("Start Main Loop")
  
-        blink_couter = 0
-
-        MyGPIO.GPIO.set_output_byte(0x00)
+        gpio = MyGPIO.GPIO()
+        gpio.set_output_byte(0x00)
     
         MyWS2812.do_all_def()	# Alle Leds auf Default-Wert
        
@@ -60,6 +57,7 @@ def main():
             if blink_couter > 50:
                 blink_couter = 0
                 blink_func()
+                gpio.do_blink()
         
             MySerial.sercon_read_line()
             if MySerial.get_ready_flag():       # Zeichenkette empfangen
@@ -152,7 +150,8 @@ def main():
         print("Keyboard Interrupt")
     finally:
         print("Exiting the program")
-        MyWS2812.do_all_off()   
+        MyWS2812.do_all_off()
+        gpio.set_output_byte(0x00)
 
     print("=== End of Main ===")
 
