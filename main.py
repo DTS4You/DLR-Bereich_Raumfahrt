@@ -10,22 +10,22 @@ import time                                                 # type: ignore
 
 LOOP_DELAY      = 0.01
 
-pix_array_01 = [11]
-pix_array_02 = [10]
-pix_array_03 = [ 6]
-pix_array_06 = [ 3, 4]
-pix_array_04 = [ 2 ,5]
-pix_array_05 = [ 0, 1]
-pix_array_07 = [ 7, 8]
-pix_array_08 = [ 9]
-pix_array_09 = [16, 24]
-pix_array_10 = [19]
-pix_array_11 = [17, 25]
-pix_array_12 = [29, 30]
-pix_array_13 = [28]
-pix_array_14 = [14, 22]
-pix_array_15 = [12, 13, 20, 21]
-pix_array_16 = [31, 32]
+map_array_01 = [ 1]
+map_array_02 = [ 2]
+map_array_03 = [ 3]
+map_array_06 = [ 4]
+map_array_04 = [ 5]
+map_array_05 = [ 6]
+map_array_07 = [ 7]
+map_array_08 = [ 8]
+map_array_09 = [ 9]
+map_array_10 = [10]
+map_array_11 = [11]
+map_array_12 = [12]
+map_array_13 = [13]
+map_array_14 = [14]
+map_array_15 = [15]
+map_array_16 = [16]
 
 obj_offset = 0          # Offset bei Zählung ab 1 = -1
 
@@ -85,52 +85,52 @@ def main():
                             #print(segment_map[MyDecode.get_value_1()])
                             MyWS2812.do_all_off()
                             if MyDecode.get_value_1() == 1:
-                                for i in pix_array_01:
+                                for i in map_array_01:
                                     MyWS2812.set_led_obj(i + obj_offset, MyDecode.get_value_2())
                             if MyDecode.get_value_1() == 2:
-                                for i in pix_array_02:
+                                for i in map_array_02:
                                     MyWS2812.set_led_obj(i + obj_offset, MyDecode.get_value_2())
                             if MyDecode.get_value_1() == 3:
-                                for i in pix_array_03:
+                                for i in map_array_03:
                                     MyWS2812.set_led_obj(i + obj_offset, MyDecode.get_value_2())
                             if MyDecode.get_value_1() == 4:
-                                for i in pix_array_04:
+                                for i in map_array_04:
                                     MyWS2812.set_led_obj(i + obj_offset, MyDecode.get_value_2())
                             if MyDecode.get_value_1() == 5:
-                                for i in pix_array_05:
+                                for i in map_array_05:
                                     MyWS2812.set_led_obj(i + obj_offset, MyDecode.get_value_2())
                             if MyDecode.get_value_1() == 6:
-                                for i in pix_array_06:
+                                for i in map_array_06:
                                     MyWS2812.set_led_obj(i + obj_offset, MyDecode.get_value_2())
                             if MyDecode.get_value_1() == 7:
-                                for i in pix_array_07:
+                                for i in map_array_07:
                                     MyWS2812.set_led_obj(i + obj_offset, MyDecode.get_value_2())
                             if MyDecode.get_value_1() == 8:
-                                for i in pix_array_08:
+                                for i in map_array_08:
                                     MyWS2812.set_led_obj(i + obj_offset, MyDecode.get_value_2())
                             if MyDecode.get_value_1() == 9:
-                                for i in pix_array_09:
+                                for i in map_array_09:
                                     MyWS2812.set_led_obj(i + obj_offset, MyDecode.get_value_2())
                             if MyDecode.get_value_1() == 10:
-                                for i in pix_array_10:
+                                for i in map_array_10:
                                     MyWS2812.set_led_obj(i + obj_offset, MyDecode.get_value_2())
                             if MyDecode.get_value_1() == 11:
-                                for i in pix_array_11:
+                                for i in map_array_11:
                                     MyWS2812.set_led_obj(i + obj_offset, MyDecode.get_value_2())
                             if MyDecode.get_value_1() == 12:
-                                for i in pix_array_12:
+                                for i in map_array_12:
                                     MyWS2812.set_led_obj(i + obj_offset, MyDecode.get_value_2())
                             if MyDecode.get_value_1() == 13:
-                                for i in pix_array_13:
+                                for i in map_array_13:
                                     MyWS2812.set_led_obj(i + obj_offset, MyDecode.get_value_2())
                             if MyDecode.get_value_1() == 14:
-                                for i in pix_array_14:
+                                for i in map_array_14:
                                     MyWS2812.set_led_obj(i + obj_offset, MyDecode.get_value_2())
                             if MyDecode.get_value_1() == 15:
-                                for i in pix_array_15:
+                                for i in map_array_15:
                                     MyWS2812.set_led_obj(i + obj_offset, MyDecode.get_value_2())
                             if MyDecode.get_value_1() == 16:
-                                for i in pix_array_16:
+                                for i in map_array_16:
                                     MyWS2812.set_led_obj(i + obj_offset, MyDecode.get_value_2())
 
                             #MyWS2812.set_led_obj(MyDecode.get_value_1(), MyDecode.get_value_2())
