@@ -1,8 +1,8 @@
 ######################################################
 ### Main-Program                                   ###
 ### Projekt: Bereich-Raumfahrt                     ###
-### Version: 0.99                                  ###
-### Datum  : 11.08.2025                            ###
+### Version: 1.00                                  ###
+### Datum  : 08.12.2025                            ###
 ######################################################
 from machine import Pin, Timer                              # type: ignore
 from libs.module_init import Global_Module as MyModule
