@@ -135,12 +135,6 @@ def main():
 
                             #MyWS2812.set_led_obj(MyDecode.get_value_1(), MyDecode.get_value_2())
 
-                    if MyDecode.get_cmd_1() == "test":
-                        #print("Test")
-                        if MyDecode.get_cmd_2() == "led":
-                            #print("LED")
-                            MyWS2812.test_led(MyDecode.get_value_1(), MyDecode.get_value_2())
-                    
 
             blink_couter = blink_couter + 1
             # Loop-Delay !!!
