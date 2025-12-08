@@ -8,10 +8,7 @@ from machine import Pin, Timer                              # type: ignore
 from libs.module_init import Global_Module as MyModule
 import time                                                 # type: ignore
 
-
-time_on    = 0.3
-time_off   = 0.4
-time_pause = 1.5
+LOOP_DELAY      = 0.01
 
 pix_array_01 = [11]
 pix_array_02 = [10]
@@ -146,7 +143,7 @@ def main():
 
             blink_couter = blink_couter + 1
             # Loop-Delay !!!
-            time.sleep(0.01)        # 10ms
+            time.sleep(LOOP_DELAY)
 
     except KeyboardInterrupt:
         print("Keyboard Interrupt")
