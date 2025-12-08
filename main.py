@@ -48,6 +48,12 @@ def main():
  
         gpio = MyGPIO.GPIO()
         gpio.set_output_byte(0x00)
+        for i in range(5):
+            gpio.set_output_byte(0x55)
+            time.sleep(0.3)
+            gpio.set_output_byte(0xAA)
+            time.sleep(0.3)
+        gpio.set_output_byte(0x00)
     
         MyWS2812.do_all_def()	# Alle Leds auf Default-Wert
        
