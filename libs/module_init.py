@@ -8,6 +8,7 @@ class Global_Module:
     inc_ws2812          = True
     inc_decoder         = True
     inc_serial          = True
+    inc_i2c             = True
 
 
 class Global_WS2812:
@@ -55,7 +56,7 @@ class Global_WS2812:
     
 # -----------------------------------------------------------------------------
 
-    color_def           = (  5,  0,  0)
+    color_def           = (  0,  0,  5)
     color_off           = (  0,  0,  0)
     color_on            = (100,100,100)
     color_half          = ( 50, 50, 50)
