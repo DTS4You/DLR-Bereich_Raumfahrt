@@ -8,7 +8,7 @@ from machine import Pin, Timer                              # type: ignore
 from libs.module_init import Global_Module as MyModule
 import time                                                 # type: ignore
 
-LOOP_DELAY      = 0.01
+LOOP_DELAY      = 0.01          # typ. 10 ms
 
 map_array_01 = [ 1]
 map_array_02 = [ 2]
