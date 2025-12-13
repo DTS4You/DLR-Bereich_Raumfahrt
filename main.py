@@ -79,56 +79,74 @@ def main():
                             if MyDecode.get_value_1() == 0:
                                 #print("off")
                                 MyWS2812.do_all_off()
+                                gpio.set_output_byte(0x00)
                             if MyDecode.get_value_1() == 1:
                                 #print("on")
                                 MyWS2812.do_all_on()
                             if MyDecode.get_value_1() == 2:
                                 #print("def")
                                 MyWS2812.do_all_def()
+                                gpio.set_output_byte(0x00)
                         if MyDecode.get_cmd_2() == "obj":
                             #print("obj")
                             #print(MyDecode.get_value_1())
                             #print(segment_map[MyDecode.get_value_1()])
                             MyWS2812.do_all_off()
+                            gpio.set_output_byte(0x00)
+                            #==> Function -01-
                             if MyDecode.get_value_1() == 1:
                                 for i in map_array_01:
                                     MyWS2812.set_led_obj(i + obj_offset, MyDecode.get_value_2())
+                                    gpio.set_output_byte(0x01)
+                            #==> Function -02-
                             if MyDecode.get_value_1() == 2:
                                 for i in map_array_02:
                                     MyWS2812.set_led_obj(i + obj_offset, MyDecode.get_value_2())
+                            #==> Function -03-
                             if MyDecode.get_value_1() == 3:
                                 for i in map_array_03:
                                     MyWS2812.set_led_obj(i + obj_offset, MyDecode.get_value_2())
+                            #==> Function -04-
                             if MyDecode.get_value_1() == 4:
                                 for i in map_array_04:
                                     MyWS2812.set_led_obj(i + obj_offset, MyDecode.get_value_2())
+                            #==> Function -05-
                             if MyDecode.get_value_1() == 5:
                                 for i in map_array_05:
                                     MyWS2812.set_led_obj(i + obj_offset, MyDecode.get_value_2())
+                            #==> Function -06-
                             if MyDecode.get_value_1() == 6:
                                 for i in map_array_06:
                                     MyWS2812.set_led_obj(i + obj_offset, MyDecode.get_value_2())
+                            #==> Function -07-
                             if MyDecode.get_value_1() == 7:
                                 for i in map_array_07:
                                     MyWS2812.set_led_obj(i + obj_offset, MyDecode.get_value_2())
+                            #==> Function -08-
                             if MyDecode.get_value_1() == 8:
                                 for i in map_array_08:
                                     MyWS2812.set_led_obj(i + obj_offset, MyDecode.get_value_2())
+                            #==> Function -09-
                             if MyDecode.get_value_1() == 9:
                                 for i in map_array_09:
                                     MyWS2812.set_led_obj(i + obj_offset, MyDecode.get_value_2())
+                            #==> Function -10-
                             if MyDecode.get_value_1() == 10:
                                 for i in map_array_10:
                                     MyWS2812.set_led_obj(i + obj_offset, MyDecode.get_value_2())
+                            #==> Function -11-
                             if MyDecode.get_value_1() == 11:
                                 for i in map_array_11:
                                     MyWS2812.set_led_obj(i + obj_offset, MyDecode.get_value_2())
+                            #==> Function -12-
                             if MyDecode.get_value_1() == 12:
                                 for i in map_array_12:
                                     MyWS2812.set_led_obj(i + obj_offset, MyDecode.get_value_2())
+                            #==> Function -13-
                             if MyDecode.get_value_1() == 13:
                                 for i in map_array_13:
                                     MyWS2812.set_led_obj(i + obj_offset, MyDecode.get_value_2())
+                            #==> Function -14-
                             if MyDecode.get_value_1() == 14:
                                 for i in map_array_14:
                                     MyWS2812.set_led_obj(i + obj_offset, MyDecode.get_value_2())
