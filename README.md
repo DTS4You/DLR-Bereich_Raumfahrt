@@ -13,9 +13,3 @@ Funktions-Zuordnung:
 10 -> Reserve oben rechts               -> Stripe 4
 11 -> Fertigungstechnologien            -> Stripe 5
 
-Eingänge:
-Keine vorhanden
----
-Ausgänge:
-Q1 - Q8
----
