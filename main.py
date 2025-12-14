@@ -42,16 +42,17 @@ def main():
     
     blink_couter = 0
 
+    gpio = MyGPIO.GPIO()
+    gpio.set_output_byte(0x00)
+
     try:
         
         print("Start Main Loop")
  
-        gpio = MyGPIO.GPIO()
-        gpio.set_output_byte(0x00)
         for i in range(5):
-            gpio.set_output_byte(0x55)
+            gpio.set_output_byte(0x00)
             time.sleep(0.3)
-            gpio.set_output_byte(0xAA)
+            gpio.set_output_byte(0xFF)
             time.sleep(0.3)
         gpio.set_output_byte(0x00)
     
@@ -96,66 +97,81 @@ def main():
                             #==> Function -01-
                             if MyDecode.get_value_1() == 1:
                                 for i in map_array_01:
-                                    MyWS2812.set_led_obj(i + obj_offset, MyDecode.get_value_2())
+                                    #MyWS2812.set_led_obj(i + obj_offset, MyDecode.get_value_2())
                                     gpio.set_output_byte(0x01)
                             #==> Function -02-
                             if MyDecode.get_value_1() == 2:
                                 for i in map_array_02:
-                                    MyWS2812.set_led_obj(i + obj_offset, MyDecode.get_value_2())
+                                    #MyWS2812.set_led_obj(i + obj_offset, MyDecode.get_value_2())
+                                    gpio.set_output_byte(0x02)
                             #==> Function -03-
                             if MyDecode.get_value_1() == 3:
                                 for i in map_array_03:
-                                    MyWS2812.set_led_obj(i + obj_offset, MyDecode.get_value_2())
+                                    #MyWS2812.set_led_obj(i + obj_offset, MyDecode.get_value_2())
+                                    gpio.set_output_byte(0x04)
                             #==> Function -04-
                             if MyDecode.get_value_1() == 4:
                                 for i in map_array_04:
-                                    MyWS2812.set_led_obj(i + obj_offset, MyDecode.get_value_2())
+                                    #MyWS2812.set_led_obj(i + obj_offset, MyDecode.get_value_2())
+                                    gpio.set_output_byte(0x08)
                             #==> Function -05-
                             if MyDecode.get_value_1() == 5:
                                 for i in map_array_05:
-                                    MyWS2812.set_led_obj(i + obj_offset, MyDecode.get_value_2())
+                                    #MyWS2812.set_led_obj(i + obj_offset, MyDecode.get_value_2())
+                                    gpio.set_output_byte(0x10)
                             #==> Function -06-
                             if MyDecode.get_value_1() == 6:
                                 for i in map_array_06:
-                                    MyWS2812.set_led_obj(i + obj_offset, MyDecode.get_value_2())
+                                    #MyWS2812.set_led_obj(i + obj_offset, MyDecode.get_value_2())
+                                    gpio.set_output_byte(0x20)
                             #==> Function -07-
                             if MyDecode.get_value_1() == 7:
                                 for i in map_array_07:
-                                    MyWS2812.set_led_obj(i + obj_offset, MyDecode.get_value_2())
+                                    MyWS2812.set_led_obj(2, MyDecode.get_value_2())
+                                    gpio.set_output_byte(0x00)
                             #==> Function -08-
                             if MyDecode.get_value_1() == 8:
                                 for i in map_array_08:
-                                    MyWS2812.set_led_obj(i + obj_offset, MyDecode.get_value_2())
+                                    MyWS2812.set_led_obj(0, MyDecode.get_value_2())
+                                    gpio.set_output_byte(0x00)
                             #==> Function -09-
                             if MyDecode.get_value_1() == 9:
                                 for i in map_array_09:
-                                    MyWS2812.set_led_obj(i + obj_offset, MyDecode.get_value_2())
+                                    #MyWS2812.set_led_obj(i + obj_offset, MyDecode.get_value_2())
+                                    gpio.set_output_byte(0x00)
                             #==> Function -10-
                             if MyDecode.get_value_1() == 10:
                                 for i in map_array_10:
-                                    MyWS2812.set_led_obj(i + obj_offset, MyDecode.get_value_2())
+                                    #MyWS2812.set_led_obj(i + obj_offset, MyDecode.get_value_2())
+                                    gpio.set_output_byte(0x00)
                             #==> Function -11-
                             if MyDecode.get_value_1() == 11:
                                 for i in map_array_11:
-                                    MyWS2812.set_led_obj(i + obj_offset, MyDecode.get_value_2())
+                                    MyWS2812.set_led_obj(4, MyDecode.get_value_2())
+                                    gpio.set_output_byte(0x00)
                             #==> Function -12-
                             if MyDecode.get_value_1() == 12:
                                 for i in map_array_12:
-                                    MyWS2812.set_led_obj(i + obj_offset, MyDecode.get_value_2())
+                                    #MyWS2812.set_led_obj(i + obj_offset, MyDecode.get_value_2())
+                                    pass
                             #==> Function -13-
                             if MyDecode.get_value_1() == 13:
                                 for i in map_array_13:
-                                    MyWS2812.set_led_obj(i + obj_offset, MyDecode.get_value_2())
+                                    #MyWS2812.set_led_obj(i + obj_offset, MyDecode.get_value_2())
+                                    pass
                             #==> Function -14-
                             if MyDecode.get_value_1() == 14:
                                 for i in map_array_14:
-                                    MyWS2812.set_led_obj(i + obj_offset, MyDecode.get_value_2())
+                                    #MyWS2812.set_led_obj(i + obj_offset, MyDecode.get_value_2())
+                                    pass
                             if MyDecode.get_value_1() == 15:
                                 for i in map_array_15:
-                                    MyWS2812.set_led_obj(i + obj_offset, MyDecode.get_value_2())
+                                    #MyWS2812.set_led_obj(i + obj_offset, MyDecode.get_value_2())
+                                    pass
                             if MyDecode.get_value_1() == 16:
                                 for i in map_array_16:
-                                    MyWS2812.set_led_obj(i + obj_offset, MyDecode.get_value_2())
+                                    #MyWS2812.set_led_obj(i + obj_offset, MyDecode.get_value_2())
+                                    pass
 
                             #MyWS2812.set_led_obj(MyDecode.get_value_1(), MyDecode.get_value_2())
 
