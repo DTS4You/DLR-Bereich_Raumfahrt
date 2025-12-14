@@ -132,7 +132,7 @@ def main():
                             #==> Function -08-
                             if MyDecode.get_value_1() == 8:
                                 for i in map_array_08:
-                                    MyWS2812.set_led_obj(1, MyDecode.get_value_2())
+                                    MyWS2812.set_led_obj(5, MyDecode.get_value_2())
                                     gpio.set_output_byte(0x00)
                             #==> Function -09-
                             if MyDecode.get_value_1() == 9:
@@ -147,7 +147,7 @@ def main():
                             #==> Function -11-
                             if MyDecode.get_value_1() == 11:
                                 for i in map_array_11:
-                                    MyWS2812.set_led_obj(5, MyDecode.get_value_2())
+                                    MyWS2812.set_led_obj(2, MyDecode.get_value_2())
                                     gpio.set_output_byte(0x00)
                             #==> Function -12-
                             if MyDecode.get_value_1() == 12:
