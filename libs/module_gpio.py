@@ -54,7 +54,7 @@ class GPIO:
 # -----------------------------------------------------------------------------
 def main():
 
-    print("=== Start Main -> Module_Sound ===")
+    print("=== Start Main -> Module_GPIO ===")
     LOOP_DELAY = 0.3
 
     try:
