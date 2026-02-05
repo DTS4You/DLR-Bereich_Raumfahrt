@@ -144,16 +144,16 @@ def main():
                                 for i in map_array_10:
                                     #MyWS2812.set_led_obj(i + obj_offset, MyDecode.get_value_2())
                                     gpio.set_output_byte(0x00)
-                            #==> Function -11-
-                            if MyDecode.get_value_1() == 11:
+                            #==> Function -51-
+                            if MyDecode.get_value_1() == 51:
                                 for i in map_array_11:
                                     MyWS2812.set_led_obj(1, MyDecode.get_value_2())
                                     gpio.set_output_byte(0x00)
-                            #==> Function -12-
-                            if MyDecode.get_value_1() == 12:
+                            #==> Function -52-
+                            if MyDecode.get_value_1() == 52:
                                 for i in map_array_12:
-                                    #MyWS2812.set_led_obj(i + obj_offset, MyDecode.get_value_2())
-                                    pass
+                                    MyWS2812.set_led_obj(2, MyDecode.get_value_2())
+                                    gpio.set_output_byte(0x00)
                             #==> Function -13-
                             if MyDecode.get_value_1() == 13:
                                 for i in map_array_13:
