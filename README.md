@@ -2,17 +2,17 @@ DLR-Bereich Raumfahrt
 ===============================================================================
 Funktions-Zuordnung:
 -------------------------------------------------------------------------------
-01 -> Fairing                           -> LED 1 
-02 -> Aerodynamische Steuerelemente     -> LED 2
-03 -> Thermalstabile Strikturen         -> LED 3
-04 -> Tankstrukturen                    -> LED 4
-05 -> Satellitentechnologie             -> LED 5
-06 -> Landebeine                        -> LED 6
-07 -> Raumfahrtantriebe                 -> Stripe 3
-08 -> Fertigungstechnologien            -> Stripe 5
-09 -> Reserve oben links                -> Stripe 4
-10 -> Reserve oben rechts               -> Stripe 1
-11 -> Fertigungstechnologien            -> Stripe 2
+01 -> Fairing                           -> LED 6    -> Bit 5
+02 -> Aerodynamische Steuerelemente     -> LED 3    -> Bit 2
+03 -> Thermalstabile Strikturen         -> LED 5    -> Bit 4
+04 -> Tankstrukturen                    -> LED 2    -> Bit 1
+05 -> Satellitentechnologie             -> LED 4    -> Bit 3
+06 -> Landebeine                        -> LED 1    -> Bit 0
+07 -> Raumfahrtantriebe                 -> Stripe 3 -> Obj. 2
+08 -> Fertigungstechnologien            -> Stripe 5 -> Obj. 4
+09 -> Reserve oben links                -> Stripe 4 -> Obj. 3
+10 -> Reserve oben rechts               -> Stripe 1 -> Obj. 0
+11 -> Fertigungstechnologien            -> Stripe 2 -> Obj. 1
 ...
 ...
 ===============================================================================
@@ -29,3 +29,4 @@ RN302, RN303    -> 1K0          -> I2C Input Port-In
 ...
 ...
 ===============================================================================
+

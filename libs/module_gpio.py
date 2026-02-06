@@ -14,6 +14,8 @@ class GPIO:
         self.mcp = mcp23017.MCP23017(self.i2c, 0x20)
         self.inputs = 0x00
         self.outputs = 0x00
+        self.blink_store = 0x00
+        self.blink_flag = False
 
     def get_input_byte(self):
         self.inputs = int.from_bytes(self.mcp._read(0x13, 1), 'big')
@@ -40,7 +42,21 @@ class GPIO:
         self.mcp._write([0x12, self.outputs])
         return self.outputs
 
+    def all_off(self):
+        self.mcp._write([0x12, 0x00])
 
+    def all_on(self):
+        self.mcp._write([0x12, 0xFF])
+
+    def blink_out(self):
+        if self.blink_flag == True:
+            print("Blink On")
+            self.mcp._write([0x12, self.outputs])
+            self.blink_flag = False
+        else:
+            print("Blink Off")
+            self.mcp._write([0x12, 0x00])
+            self.blink_flag = True
 
 
 # -----------------------------------------------------------------------------
@@ -75,20 +91,29 @@ def main():
         gpio.set_output_bit(7, "Off")
         gpio.set_output_bit(8, "Off")
         
+        gpio.blink_out()    
+
+        gpio.set_output_bit(0, "On")
+
+        sleep(0.5)
+
+        gpio.blink_out() 
+
+        sleep(0.5)
+
+        gpio.blink_out()
+
+        sleep(0.5)
+
+        gpio.blink_out()
+
+        sleep(0.5)
+
+        gpio.blink_out()
+
+        sleep(0.5)
 
 
-        while(True):
-
-            gpio.get_input_byte()
-            if gpio.get_value_bit(0):
-                gpio.set_output_bit(0, "On")
-            if gpio.get_value_bit(1):
-                gpio.set_output_bit(1, "On")
-            if gpio.get_value_bit(2):
-                gpio.set_output_bit(0, "Off")
-            if gpio.get_value_bit(3):
-                gpio.set_output_bit(1, "Off")
-            sleep(0.2)
     except KeyboardInterrupt:
         print("Keyboard Interrupt")
     finally:
