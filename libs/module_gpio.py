@@ -50,11 +50,11 @@ class GPIO:
 
     def blink_out(self):
         if self.blink_flag == True:
-            print("Blink On")
+            #print("Blink On")
             self.mcp._write([0x12, self.outputs])
             self.blink_flag = False
         else:
-            print("Blink Off")
+            #print("Blink Off")
             self.mcp._write([0x12, 0x00])
             self.blink_flag = True
 
