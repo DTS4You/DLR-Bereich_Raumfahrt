@@ -46,12 +46,36 @@ class GPIO:
 # -----------------------------------------------------------------------------
 def main():
 
-    print("=== Start Main -> Module_Sound ===")
+    print("=== Start Main -> GPIO-Modul ===")
 
     try:
         print("Start")
 
         gpio = GPIO()
+
+        gpio.set_output_bit(0, "On")
+        gpio.set_output_bit(1, "On")
+        gpio.set_output_bit(2, "On")
+        gpio.set_output_bit(3, "On")
+        gpio.set_output_bit(4, "On")
+        gpio.set_output_bit(5, "On")
+        gpio.set_output_bit(6, "On")
+        gpio.set_output_bit(7, "On")
+        gpio.set_output_bit(8, "On")
+        
+        sleep(1)
+
+        gpio.set_output_bit(0, "Off")
+        gpio.set_output_bit(1, "Off")
+        gpio.set_output_bit(2, "Off")
+        gpio.set_output_bit(3, "Off")
+        gpio.set_output_bit(4, "Off")
+        gpio.set_output_bit(5, "Off")
+        gpio.set_output_bit(6, "Off")
+        gpio.set_output_bit(7, "Off")
+        gpio.set_output_bit(8, "Off")
+        
+
 
         while(True):
 
