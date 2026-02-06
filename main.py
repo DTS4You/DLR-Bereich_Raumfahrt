@@ -27,6 +27,15 @@ map_array_14 = [14]
 map_array_15 = [15]
 map_array_16 = [16]
 
+FUNKTION_01     = 0b00000001
+FUNKTION_02     = 0b00000010
+FUNKTION_03     = 0b00000100
+FUNKTION_04     = 0b00001000
+FUNKTION_05     = 0b00010000
+FUNKTION_06     = 0b00100000
+FUNKTION_07     = 0b01000000
+FUNKTION_08     = 0b10000000
+
 obj_offset = 0          # Offset bei Zählung ab 1 = -1
 
 def blink_func():
@@ -128,12 +137,12 @@ def main():
                             if MyDecode.get_value_1() == 7:
                                 for i in map_array_07:
                                     MyWS2812.set_led_obj(2, MyDecode.get_value_2())
-                                    gpio.set_output_byte(0x00)
+                                    #gpio.set_output_byte(0x00)
                             #==> Function -08-
                             if MyDecode.get_value_1() == 8:
                                 for i in map_array_08:
                                     MyWS2812.set_led_obj(4, MyDecode.get_value_2())
-                                    gpio.set_output_byte(0x00)
+                                    #gpio.set_output_byte(0x00)
                             #==> Function -09-
                             if MyDecode.get_value_1() == 9:
                                 for i in map_array_09:
@@ -148,12 +157,14 @@ def main():
                             if MyDecode.get_value_1() == 51:
                                 for i in map_array_11:
                                     MyWS2812.set_led_obj(1, MyDecode.get_value_2())
-                                    gpio.set_output_byte(0x00)
+                                    #time.sleep(0.1)
+                                    #gpio.set_output_byte(0x00)
                             #==> Function -52-
                             if MyDecode.get_value_1() == 52:
                                 for i in map_array_12:
                                     MyWS2812.set_led_obj(2, MyDecode.get_value_2())
-                                    gpio.set_output_byte(0x00)
+                                    #time.sleep(0.1)
+                                    #gpio.set_output_byte(0x00)
                             #==> Function -13-
                             if MyDecode.get_value_1() == 13:
                                 for i in map_array_13:
