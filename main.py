@@ -118,47 +118,55 @@ def main():
                             if MyDecode.get_value_1() == 1:
                                 for i in map_array_01:
                                     #MyWS2812.set_led_obj(i + obj_offset, MyDecode.get_value_2())
+                                    gpio.all_off()
                                     gpio.set_output_bit(5, "On")
                                     #pass
                             #==> Function -02-
                             if MyDecode.get_value_1() == 2:
                                 for i in map_array_02:
                                     #MyWS2812.set_led_obj(i + obj_offset, MyDecode.get_value_2())
+                                    gpio.all_off()
                                     gpio.set_output_bit(2, "On")
                                     #pass
                             #==> Function -03-
                             if MyDecode.get_value_1() == 3:
                                 for i in map_array_03:
                                     #MyWS2812.set_led_obj(i + obj_offset, MyDecode.get_value_2())
+                                    gpio.all_off()
                                     gpio.set_output_bit(4, "On")
                                     #pass
                             #==> Function -04-
                             if MyDecode.get_value_1() == 4:
                                 for i in map_array_04:
                                     #MyWS2812.set_led_obj(i + obj_offset, MyDecode.get_value_2())
+                                    gpio.all_off()
                                     gpio.set_output_bit(1, "On")
                                     pass
                             #==> Function -05-
                             if MyDecode.get_value_1() == 5:
                                 for i in map_array_05:
                                     #MyWS2812.set_led_obj(i + obj_offset, MyDecode.get_value_2())
+                                    gpio.all_off()
                                     gpio.set_output_bit(3, "On")
                                     #pass
                             #==> Function -06-
                             if MyDecode.get_value_1() == 6:
                                 for i in map_array_06:
                                     #MyWS2812.set_led_obj(i + obj_offset, MyDecode.get_value_2())
+                                    gpio.all_off()
                                     gpio.set_output_bit(0, "On")
                                     #pass
                             #==> Function -07-
                             if MyDecode.get_value_1() == 7:
                                 for i in map_array_07:
                                     MyWS2812.set_led_obj(2, MyDecode.get_value_2())
+                                    gpio.all_off()
                                     #gpio.set_output_byte(0x00)
                             #==> Function -08-
                             if MyDecode.get_value_1() == 8:
                                 for i in map_array_08:
                                     MyWS2812.set_led_obj(4, MyDecode.get_value_2())
+                                    gpio.all_off()
                                     #gpio.set_output_byte(0x00)
                             #==> Function -09-
                             if MyDecode.get_value_1() == 9:
@@ -176,6 +184,7 @@ def main():
                             if MyDecode.get_value_1() == 11:
                                 for i in map_array_11:
                                     MyWS2812.set_led_obj(1, MyDecode.get_value_2())
+                                    gpio.all_off()
                                     #gpio.set_output_byte(0x00)
                                     pass
                             #==> Function -51-

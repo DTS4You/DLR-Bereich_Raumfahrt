@@ -43,10 +43,14 @@ class GPIO:
         return self.outputs
 
     def all_off(self):
-        self.mcp._write([0x12, 0x00])
+        self.outputs = 0x00
+        self.mcp._write([0x12, self.outputs])
+        return self.outputs
 
     def all_on(self):
-        self.mcp._write([0x12, 0xFF])
+        self.outputs = 0xFF
+        self.mcp._write([0x12, self.outputs])
+        return self.outputs
 
     def blink_out(self):
         if self.blink_flag == True:

@@ -30,3 +30,15 @@ RN302, RN303    -> 1K0          -> I2C Input Port-In
 ...
 ===============================================================================
 
+ToDo
+
+Menü -> Trägerrakete
+-> 25 -> Aero, Fairing, Lanfebeine, Tank
+
+
+Back Link -> Deutsch -> Menü Trägerrakete springt auf Eng.
+
+
+Menübaum nicht von der Home-seite ansteuerbar
+
+
