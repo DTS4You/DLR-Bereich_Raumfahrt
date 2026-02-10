@@ -10,11 +10,15 @@ Funktions-Zuordnung:
 06 -> Landebeine                        -> LED 1    -> Bit 0
 07 -> Raumfahrtantriebe                 -> Stripe 3 -> Obj. 2
 08 -> Fertigungstechnologien            -> Stripe 5 -> Obj. 4
-09 -> Reserve oben links                -> Stripe 4 -> Obj. 3
-10 -> Reserve oben rechts               -> Stripe 1 -> Obj. 0
+09 -> ---frei--- -> ist auf 51 gemappt
+10 -> ---frei--- -> ist auf 52 gemappt
 11 -> Fertigungstechnologien            -> Stripe 2 -> Obj. 1
 ...
+25 -> Gruppe Menüpunkt -> Trägerrakete
 ...
+51 -> Reserve oben links                -> Stripe 4 -> Obj. 3
+52 -> Reserve oben rechts               -> Stripe 1 -> Obj. 0
+
 ===============================================================================
 Hardware:
 -------------------------------------------------------------------------------
@@ -29,8 +33,9 @@ RN302, RN303    -> 1K0          -> I2C Input Port-In
 ...
 ...
 ===============================================================================
-
 ToDo:
+-------------------------------------------------------------------------------
+06.02.2026
 1.
 Menü -> Trägerrakete
 -> 25 -> Aero, Fairing, Lanfebeine, Tank
@@ -41,4 +46,4 @@ Back Link -> Deutsch -> Menü Trägerrakete springt auf Eng.
 3.
 Menübaum nicht von der Home-seite ansteuerbar
 
-
+===============================================================================
