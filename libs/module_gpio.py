@@ -30,7 +30,10 @@ class GPIO:
 
     def set_output_byte(self, value=None):
         if not value == None:
-            self.outputs = value
+            if (value >= 0x00) and (value <= 0xFF):
+                self.outputs = value
+            else:
+                print("Error -> Value not in Range 0x00 - 0xFF")
         self.mcp._write([0x12, self.outputs])
         return self.outputs
     
@@ -95,27 +98,10 @@ def main():
         gpio.set_output_bit(7, "Off")
         gpio.set_output_bit(8, "Off")
         
-        gpio.blink_out()    
-
-        gpio.set_output_bit(0, "On")
-
-        sleep(0.5)
-
-        gpio.blink_out() 
-
-        sleep(0.5)
-
-        gpio.blink_out()
-
-        sleep(0.5)
-
-        gpio.blink_out()
-
-        sleep(0.5)
-
-        gpio.blink_out()
-
-        sleep(0.5)
+        gpio.set_output_byte(0xAA)
+        sleep(0.3)
+        gpio.set_output_byte(256)
+        
 
 
     except KeyboardInterrupt:
