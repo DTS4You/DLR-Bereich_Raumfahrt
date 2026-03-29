@@ -14,7 +14,10 @@ Funktions-Zuordnung:
 10 -> ---frei--- -> ist auf 52 gemappt
 11 -> Fertigungstechnologien            -> Stripe 2 -> Obj. 1
 ...
-25 -> Gruppe Menüpunkt -> Trägerrakete
+25 -> Gruppe Menüpunkt -> Trägerrakete -> Aero, Fairing, Landebeine, Tank
+        -> LED 1, 2, 3, 6   -> Bit Position -> 7  6  5  4  3  2  1  0
+                                               0  0  1  0  0  1  1  1
+        -> 0b00100111
 ...
 51 -> Reserve oben links                -> Stripe 4 -> Obj. 3
 52 -> Reserve oben rechts               -> Stripe 1 -> Obj. 0

@@ -100,7 +100,9 @@ def main():
         
         gpio.set_output_byte(0xAA)
         sleep(0.3)
-        gpio.set_output_byte(256)
+        gpio.set_output_byte(0x55)
+        sleep(0.3)
+        gpio.set_output_byte(0x00)
         
 
 
