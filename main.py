@@ -59,8 +59,8 @@ def main():
 
         print("GPIO Test Ende")
 
-        MyWS2812.do_all_def()	# Alle Leds auf Default-Wert
-        gpio.all_off()
+        MyWS2812.do_all_off()	# Alle Stripes aus !!!
+        gpio.all_off()          # Alle LEDs aus !!!
        
         # True
         while MySerial.sercon_read_flag():
@@ -91,9 +91,9 @@ def main():
                                 gpio.all_on()
                             if MyDecode.get_value_1() == 2:
                                 #print("def")
-                                # Alle Stripes auf Default ausser -> Strip 1 und 4
-                                #MyWS2812.do_all_def()
-                                #MyWS2812.set_led_obj(0, "def")
+                                # Alle LEDs aus !!!
+                                gpio.all_off()
+                                # Alle Stripes auf Default ausser -> Strip 1 und 4 !!!
                                 MyWS2812.set_led_obj(1, "def")
                                 MyWS2812.set_led_obj(2, "def")
                                 #MyWS2812.set_led_obj(3, "def")
@@ -101,14 +101,10 @@ def main():
                                 MyWS2812.set_led_obj(5, "def")
                                 MyWS2812.set_led_obj(6, "def")
                                 MyWS2812.set_led_obj(7, "def")
-                                #gpio.set_output_byte(0x00)
-                                gpio.all_off()
-
+                        #---------------------------------------------------------
                         if MyDecode.get_cmd_2() == "obj":
                             #print("obj")
-                            #print(MyDecode.get_value_1())
-                            #print(segment_map[MyDecode.get_value_1()])
-                            #MyWS2812.do_all_off()
+                            # Alle Stripes auf Default
                             #MyWS2812.set_led_obj(0, "def")
                             MyWS2812.set_led_obj(1, "def")
                             MyWS2812.set_led_obj(2, "def")
@@ -174,6 +170,7 @@ def main():
                             #==> Function -25-
                             if MyDecode.get_value_1() == 25:
                                 print("Funktion-25-")
+                                gpio.all_off()
                                 gpio.set_output_byte(0b00100111)
                             #==> Function -51-
                             if MyDecode.get_value_1() == 51:
